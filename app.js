@@ -68,6 +68,10 @@ let ballH = 30;
 
 let ballSpeedX = -4;
 let ballSpeedY = 6;
+let originalBallXSpeed = 6;
+let originalBalYSpeed = 4;
+let ballIncrementX = 0
+let ballIncrementY = 0
 let leftScore = 0;
 let rightScore = 0;
 
@@ -131,6 +135,7 @@ function ballReset() {
     ballSpeedX = 0
     ballSpeedY = 0
     ballIsFrozen = true;
+
 }
 
  function updateBall() {
@@ -143,14 +148,18 @@ function ballReset() {
 
     if (ballX < 0) {
         ballReset()
+        // ballSpeedY * 1.05
         rightScore += 1;
         console.log(rightScore)
         if (rightScore == 10) {
             console.log("right player wins!")
-        }
-        
-    }
 
+        }
+  
+    }
+// git add
+// git commit
+//git push
 
     if (ballX >= canv.width) {
        ballSpeedX *= -1;
@@ -166,6 +175,10 @@ if (Date.now() - ballTimer > ballDelay && ballIsFrozen == true) {
     ballSpeedX = 4
     ballSpeedY = 6
     ballIsFrozen = false
+    ballSpeedX = originalBallXSpeed + ballIncrementX
+    ballSpeedY = originalBalYSpeed + ballIncrementY
+    ballIncrementX += 1
+    ballIncrementY += 1
 }
 
 
